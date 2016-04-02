@@ -6,13 +6,86 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+        var container = document.getElementById('main');
+
+        var inbox = document.createElement('div');
+        inbox.id = 'inbox';
+        inbox.innerHTML = "Number of Messages";
+        container.appendChild(inbox);
+
+        var counter = document.createElement('span');
+        counter.id = 'counter';
+        counter.innerHTML = geemails.length;
+        inbox.appendChild(counter);
+
+        var total = 0;
+        var count = geemails.length;
+
+        setInterval(function(){
+        	
+        	var newEmails = document.createElement('div');
+        	newEmails.className = 'emails';
+        	var addEmails = getNewMessage();
+
+        	var date = addEmails.date;
+        	var sender = addEmails.sender;
+        	var subject = addEmails.subject;
+        	var message = addEmails.body;
+        	newEmails.innerHTML = date + ',   From: ' + sender + ',   Subject: ' + subject;
+        	container.appendChild(newEmails);
+
+        	var newMessage = document.createElement('div');
+        	newMessage.className = 'messages';
+        	newMessage.innerHTML = message;
+        	container.appendChild(newMessage);
+      
+        	count++;
+        	total = count;
+        	document.getElementById('counter').innerHTML = total;
+
+        }, 4000);
+
+        function showEmails(obj){
+        	for (var i=0; i<geemails.length; i++){
+
+				var emails = document.createElement('div');
+        		emails.className = 'emails';
+        		emails.innerHTML = obj[i].date + ',   From: ' + obj[i].sender + ',   Subject: ' + obj[i].subject;
+				container.appendChild(emails);
+
+
+
+				var messages = document.createElement('div');
+				messages.className = 'messages';
+				messages.innerHTML = obj[i].body;
+				container.appendChild(messages);	
+        	}//end of for loop
+
+        }//end of showEmails()
+
+        showEmails(geemails);
+
+
+  //       function emailMssg(){
+  //       	for (var j=0; j<geemails.length; j++){
+  //       		emailMssg[j].addEventListener('mouseover', showMssg);
+  //       	}
+  //       }//end of emailMssg()
+
+  //       function showMssg(){
+  //       var mssgHandler = this.querySelectorAll('.emails')[0];
+		// 	return mssgHandler.classList.add('show');
+
+		// }//end of showmssg()
+
+
+
+      };//end of windows.onload()
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me! Now!
+			GeeMail Inbox
 		</div>
 	</body>
 </html>
