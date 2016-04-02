@@ -1,0 +1,9 @@
+div.messages {
+	display: none;
+}
+
+div.emails:hover .messages{
+	display: block;
+	margin-top: 10px;
+	font-size: 15 px;
+}
