@@ -5,11 +5,10 @@
 .container{
 	background-image: url('https://cdn2.iconfinder.com/data/icons/fatcow/32x32/inbox_download.png');
 	background-repeat: no-repeat;
-	margin-top: 20px;
-	margin-left: 20px;
+	margin-top: 15px;
 	height: 50px;
-	width: 300px;
-	padding-left: 30px;
+	width: 70px;
+	padding-left: 10px;
 	color: #003366;
 	font-size: 20px;
 
