@@ -16,6 +16,7 @@
         document.body.appendChild(rightColumn);
 
         var container = document.getElementById('main');
+        container.innerHTML = 'GeeMail Inbox';
 
         var inbox = document.createElement('div');
         inbox.id = 'inbox';
@@ -59,7 +60,7 @@
             }else{
               return showBody.classList.remove('show');
             }
-           }//end of showMss function
+            }//end of showMss function
 
         	count++;
         	total = count;
@@ -87,14 +88,12 @@
               }
 
             function showMssg(event){
-              
-                var showBody = this.querySelectorAll('.messages')[0];//starts with index 0, this refers to emailMssg, .message is class "messages"
-            
-                    if(showBody.classList.contains('show')===false){//false that show is hidden
-                    return showBody.classList.add('show');
-                    }else{
-                    return showBody.classList.remove('show');
-                    }
+              var showBody = this.querySelectorAll('.messages')[0];//starts with index 0, this refers to emailMssg, .message is class "messages"
+                if(showBody.classList.contains('show')===false){//false that show is hidden
+                return showBody.classList.add('show');
+                }else{
+                return showBody.classList.remove('show');
+                }
             }//end of showMssg function
 
         }//end of showEmails()
@@ -106,7 +105,6 @@
 	</head>
 	<body>
 		<div class="container" id="main">
-			GeeMail Inbox
 		</div>
 	</body>
 </html>
