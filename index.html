@@ -2,6 +2,7 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
@@ -39,7 +40,7 @@
         	var sender = addEmails.sender;
         	var subject = addEmails.subject;
         	var message = addEmails.body;
-        	newEmails.innerHTML = date + ',   From: ' + sender + ',   Subject: ' + subject;
+        	newEmails.innerHTML = ' <i class="glyphicon glyphicon-envelope"></i>' + '  ' + date + ',   From: ' + sender + ',   Subject: ' + subject;
         	document.body.appendChild(newEmails);
 
             newEmails.addEventListener('click', showMssg);
@@ -71,7 +72,7 @@
 
 				var emails = document.createElement('div');
         		emails.className = 'emails';
-        		emails.innerHTML = obj[i].date + ',   From: ' + obj[i].sender + ',   Subject: ' + obj[i].subject;
+        		emails.innerHTML = ' <i class="glyphicon glyphicon-envelope"></i>' + '  ' + obj[i].date + ',   From: ' + obj[i].sender + ',   Subject: ' + obj[i].subject;
 				document.body.appendChild(emails);
 
 				var messages = document.createElement('div');
