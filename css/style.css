@@ -1,9 +1,75 @@
-div.messages {
+#main{
+	font-family: georgia;
+}
+
+.container{
+	background-image: url('https://cdn2.iconfinder.com/data/icons/fatcow/32x32/inbox_download.png');
+	background-repeat: no-repeat;
+	margin-left: 20px;
+	height: 50px;
+	width: 300px;
+	padding-left: 30px;
+	color: #003366;
+	font-size: 20px;
+
+}
+
+.emails{
+	padding-left: 30px;
+	margin-right: 400px;
+	background-color: #dbf5fa;
+}
+
+#right{
+	background-image: url('https://www.callmejoe.net/wp-content/uploads/2015/08/DevLeague.png');
+	float: right;
+	background-repeat: no-repeat;
+	height: 500px;
+	width: 300px;
+	padding-right: 10px;
+	padding-left: 10px;
+	font-style: italic;
+	color: 330066;
+	margin-right:  20px;
+
+}
+
+#inbox{
+	display: inline-block;
+	position: absolute;
+	background-image: url('http://www.timesharemyway.com/view/images/03_Message.png');
+	background-repeat: no-repeat;
+	height: 70px;
+	width: 80px;
+	margin-right: 70px;
+	right: 20px;
+	font-size: 20px;
+}
+
+#counter{
+	background-color: #E8E8E8;
+	padding: 3px;
+	font-size: 18px;
+	border: solid;
+	margin-left: 5px;
+}
+
+.messages {
 	display: none;
 }
 
-div.emails:hover .messages{
+/*for fun- show message when hover over*/
+/*.emails:hover + .messages{
 	display: block;
+	margin-top: 10px;
+	font-size: 15 px;
+	font-style: italic;
+}
+*/
+
+.messages.show{
+	display: block;
+	font-style: italic;
 	margin-top: 10px;
 	font-size: 15 px;
 }
