@@ -6,11 +6,19 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+        var rightColumn = document.createElement('div');
+        rightColumn.id = 'right';
+        var otherMessages = document.createElement('p');
+        otherMessages.class = 'ads';
+        otherMessages.innerHTML = '  Advertisement';
+        rightColumn.appendChild(otherMessages);
+        document.body.appendChild(rightColumn);
+
         var container = document.getElementById('main');
 
         var inbox = document.createElement('div');
         inbox.id = 'inbox';
-        inbox.innerHTML = "Number of Messages";
+        inbox.innerHTML = "Messages";
         container.appendChild(inbox);
 
         var counter = document.createElement('span');
@@ -32,13 +40,26 @@
         	var subject = addEmails.subject;
         	var message = addEmails.body;
         	newEmails.innerHTML = date + ',   From: ' + sender + ',   Subject: ' + subject;
-        	container.appendChild(newEmails);
+        	document.body.appendChild(newEmails);
+
+            newEmails.addEventListener('click', showMssg);
 
         	var newMessage = document.createElement('div');
         	newMessage.className = 'messages';
         	newMessage.innerHTML = message;
-        	container.appendChild(newMessage);
-      
+        	newEmails.appendChild(newMessage);
+
+            function showMssg(event){
+            //var showBody = document.getElementsByClassName('message');
+            var showBody = this.querySelectorAll('.messages')[0];//starts with index 0, this refers to emailMssg, .message is class "message"
+
+            if(showBody.classList.contains('show')===false){//false that show is hidden
+              return showBody.classList.add('show');
+            }else{
+              return showBody.classList.remove('show');
+            }
+           }//end of showMss function
+
         	count++;
         	total = count;
         	document.getElementById('counter').innerHTML = total;
@@ -51,34 +72,33 @@
 				var emails = document.createElement('div');
         		emails.className = 'emails';
         		emails.innerHTML = obj[i].date + ',   From: ' + obj[i].sender + ',   Subject: ' + obj[i].subject;
-				container.appendChild(emails);
-
-
+				document.body.appendChild(emails);
 
 				var messages = document.createElement('div');
 				messages.className = 'messages';
 				messages.innerHTML = obj[i].body;
-				container.appendChild(messages);	
+				emails.appendChild(messages);	
         	}//end of for loop
+
+            var emailMssg = document.getElementsByClassName('emails');
+            for (var j=0; j<emailMssg.length; j++){
+              emailMssg[j].addEventListener('click', showMssg);
+              }
+
+            function showMssg(event){
+              
+                var showBody = this.querySelectorAll('.messages')[0];//starts with index 0, this refers to emailMssg, .message is class "messages"
+            
+                    if(showBody.classList.contains('show')===false){//false that show is hidden
+                    return showBody.classList.add('show');
+                    }else{
+                    return showBody.classList.remove('show');
+                    }
+            }//end of showMssg function
 
         }//end of showEmails()
 
         showEmails(geemails);
-
-
-  //       function emailMssg(){
-  //       	for (var j=0; j<geemails.length; j++){
-  //       		emailMssg[j].addEventListener('mouseover', showMssg);
-  //       	}
-  //       }//end of emailMssg()
-
-  //       function showMssg(){
-  //       var mssgHandler = this.querySelectorAll('.emails')[0];
-		// 	return mssgHandler.classList.add('show');
-
-		// }//end of showmssg()
-
-
 
       };//end of windows.onload()
     </script>
